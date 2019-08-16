@@ -1,0 +1,21 @@
+@charset "ISO-8859-1";
+
+#f {
+	margin: 200px 0px 0px 450px;
+	border: 1px solid black;
+	width: 400px;
+	background-color: cyan
+}
+
+form div {
+	height: 50px;
+}
+
+input[type="text"] {height =50px
+	
+}
+
+label {
+	font-size: medium;
+	font-weight: bold;
+}
