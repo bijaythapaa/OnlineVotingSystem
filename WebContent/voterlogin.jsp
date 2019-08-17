@@ -41,13 +41,20 @@
 					</div>
 					<br>
 					<div class="form-group">
+						<label>Email</label> <input type="email" name="vmail"
+							value="${email}" class="form-control">
+					</div>
+					<br>
+					<div class="form-group">
 						<input type="checkbox" name="remember-me" class="form-control">RememberMe
 					</div>
 					<div class="form-group">
 						<input type="submit" value="Login" class="btn btn-success">
 					</div>
-					<span style="color: red">${loginFailMsg}</span> <br> <input
-						type="button" value="${forgotPassMsg}" name="forgotPass">
+					<span style="color: red">${loginFailMsg}</span> <br>
+					<%-- <input
+						type="button" value="${forgotPassMsg}" name="forgotPass" id="btn"> --%>
+					<br> <input type="submit" value="Clear" id="btn1">
 				</form>
 			</div>
 			<div class="col-md-4"></div>

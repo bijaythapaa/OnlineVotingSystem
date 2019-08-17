@@ -14,6 +14,6 @@ public interface VoterDao {
 	
 	public void deleteVoterInfo(int id);
 	
-	public boolean loginValidate(String userName, String password);
+	public boolean loginValidate(String userName, String password, String email);
 	
 }

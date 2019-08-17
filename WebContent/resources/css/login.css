@@ -19,3 +19,22 @@ label {
 	font-size: medium;
 	font-weight: bold;
 }
+
+#btn{
+	
+	background-color: black;
+	border-radius: 20px;
+	padding: .3em 2em .4em;
+	color: #fff;
+	outline: none;
+}
+#btn1{
+	
+	background-color: black;
+	border-radius: 20px;
+	padding: .3em 2em .4em;
+	color: #fff;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
