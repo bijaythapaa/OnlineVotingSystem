@@ -1,0 +1,21 @@
+.container{
+      margin-top: 50px;
+  margin-bottom: 50px;
+  margin-right: 50px;
+  margin-left: 50px;
+  border-style: solid;
+};
+html {
+  scroll-behavior: smooth;
+};
+.text-white{
+	color: #f7f7f7;
+};
+.row1{
+
+  overflow: scroll;
+
+};
+
+
+
