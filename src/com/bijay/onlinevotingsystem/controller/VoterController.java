@@ -23,10 +23,10 @@ public class VoterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	VoterDao voterDao = new VoterDaoImpl();
 	SHA256 sha = new SHA256();
-
+	private int status=0;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("voterRegistrationForm.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("voterRegistration.jsp");
 		rd.forward(request, response);
 	}
 
@@ -46,19 +46,16 @@ public class VoterController extends HttpServlet {
 		 */
 
 		Voter voter = new Voter();
-
 		voter.setVoterName(request.getParameter("vname"));
 		voter.setPassword(sha.getSHA(request.getParameter("pass")));
-		/*String password = request.getParameter("pass");
-		voter.setPassword(sha.getSHA(password));*/
+		
 		voter.setStateNo(Integer.parseInt(request.getParameter("stno")));
 		voter.setDistrictName(request.getParameter("disname"));
 		voter.setEmail(request.getParameter("email"));
 		voter.setGender(request.getParameter("gender"));
-
+		voter.setStatus(status);
 		// for date
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
 		try {
 			Date d = sdf.parse(request.getParameter("dob"));
 			voter.setDob(d);

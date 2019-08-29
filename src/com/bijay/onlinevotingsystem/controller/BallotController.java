@@ -35,6 +35,7 @@ public class BallotController extends HttpServlet {
 		ballotDao.saveBallotInfo(ballot);
 		*/
 		//String voterId = request.getParameter("voterid");
+		
 		String partyName= request.getParameter("party");
 		
 		//String voteId = request.getParameter(id);
