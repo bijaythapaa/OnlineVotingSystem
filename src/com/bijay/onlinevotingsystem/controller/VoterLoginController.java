@@ -21,7 +21,6 @@ import com.bijay.onlinevotingsystem.dao.VoterDaoImpl;
 public class VoterLoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	VoterDao voterDao = new VoterDaoImpl();
-	SHA256 sha = new SHA256();
 
 	private String host;
 	private String port;
@@ -76,7 +75,7 @@ public class VoterLoginController extends HttpServlet {
 		otp = r.nextInt(max - min) + min;
 
 		String userName = request.getParameter("uname");
-		String password = sha.getSHA(request.getParameter("pass"));
+		String password = request.getParameter("pass");
 		String vemail = request.getParameter("vmail");
 
 		String recipient = vemail;
