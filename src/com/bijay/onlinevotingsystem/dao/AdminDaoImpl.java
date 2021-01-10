@@ -6,6 +6,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.crypto.Cipher;
+
+import com.bijay.onlinevotingsystem.controller.SHA256;
 import com.bijay.onlinevotingsystem.dto.Admin;
 import com.bijay.onlinevotingsystem.util.DbUtil;
 
@@ -98,14 +101,14 @@ public class AdminDaoImpl implements AdminDao {
 	@Override
 	public boolean loginValidate(String userName, String password) {
 
-		String sql = "select * from admin_table where admin_name=? and password=?";
+		String sql = "select * from admin_table where admin_name=?";
 		try {
 			ps=DbUtil.getConnection().prepareStatement(sql);
 			ps.setString(1, userName);
-			ps.setString(2,password);
 			ResultSet rs =ps.executeQuery();
 			if (rs.next()) {
-				return true;
+				String cipherText = rs.getString("password");
+				return SHA256.validatePassword(password, cipherText);
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();

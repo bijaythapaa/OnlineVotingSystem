@@ -18,7 +18,6 @@ import com.bijay.onlinevotingsystem.dao.AdminDaoImpl;
 public class AdminLoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	AdminDao adminDao = new AdminDaoImpl();
-	SHA256 sha = new SHA256();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -36,7 +35,7 @@ public class AdminLoginController extends HttpServlet {
 
 		// to get values from the login page
 		String userName = request.getParameter("aname");
-		String password = sha.getSHA(request.getParameter("pass"));
+		String password = request.getParameter("pass");
 		// String password = request.getParameter("pass");
 		String rememberMe = request.getParameter("remember-me");
 

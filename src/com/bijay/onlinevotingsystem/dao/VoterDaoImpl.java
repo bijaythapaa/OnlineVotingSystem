@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.Date;
 
+import com.bijay.onlinevotingsystem.controller.SHA256;
 import com.bijay.onlinevotingsystem.dto.Voter;
 import com.bijay.onlinevotingsystem.util.DbUtil;
 
@@ -80,15 +81,15 @@ public class VoterDaoImpl implements VoterDao {
 
 	@Override
 	public boolean loginValidate(String userName, String password, String email) {
-		String sql = "select * from voter_table where voter_name=? and password=? and email=?";
+		String sql = "select * from voter_table where voter_name=? and email=?";
 		try {
 			ps = DbUtil.getConnection().prepareStatement(sql);
 			ps.setString(1, userName);
-			ps.setString(2, password);
-			ps.setString(3, email);
+			ps.setString(2, email);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				return true;
+				String cipherText = rs.getString("password");
+				return SHA256.validatePassword(password, cipherText);
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
