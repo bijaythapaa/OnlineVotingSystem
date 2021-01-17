@@ -18,8 +18,8 @@ public class SendMail extends HttpServlet {
 	
 
 	public static void sendMail(String toEmail, int x) {
-		final String fromEmail = "khumkhatri10@gmail.com";
-		final String password = "Wayne2016";
+		final String fromEmail = "**your-mail**";
+		final String password = "**password**";
 		int otp=x;
 		
 		
@@ -42,9 +42,9 @@ public class SendMail extends HttpServlet {
 
 	/*
 	public static void main(String[] args) {
-		final String fromEmail = "khumkhatri10@gmail.com"; // requires valid gmail id
-		final String password = "Wayne2016"; // correct password for gmail id
-		final String toEmail = "khumkhatri11@gmail.com"; // can be any email id
+		final String fromEmail = "**your-mail**"; // requires valid gmail id
+		final String password = "**password**"; // correct password for gmail id
+		final String toEmail = "**your-mail**"; // can be any email id
 
 		System.out.println("TLSEmail Start");
 		Properties props = new Properties();
